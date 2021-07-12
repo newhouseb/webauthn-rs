@@ -591,6 +591,8 @@ impl<T> Webauthn<T> {
         // Verify that the value of C.challenge matches the challenge that was sent to the
         // authenticator in the PublicKeyCredentialRequestOptions passed to the get() call.
         if c.challenge.0 != chal.as_ref() {
+            dbg!(c.challenge.0);
+            dbg!(chal.as_ref());
             return Err(WebauthnError::MismatchedChallenge);
         }
 
