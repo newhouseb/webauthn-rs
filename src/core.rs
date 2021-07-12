@@ -309,6 +309,7 @@ impl<T> Webauthn<T> {
         // Verify that the value of C.challenge matches the challenge that was sent to the
         // authenticator in the create() call.
         if data.client_data_json.challenge.0 != chal.as_ref() {
+            println!("Mismatched {:?} vs {:?}", c.challenge.0, chal.as_ref());
             return Err(WebauthnError::MismatchedChallenge);
         }
 
